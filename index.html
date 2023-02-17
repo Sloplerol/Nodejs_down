@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <button class="btnget">GET</button>
+    <button class="btnpost">POST</button>
+    <button class="btnjsonp">JSONP</button>
+    <script>
+        $('.btnget').on('click',function(){
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1/api/get',
+                data: {rname:'dog',age:29},
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        })
+        $('.btnpost').on('click',function(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1/api/post',
+                data: {rname:'cat',age:29},
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        })
+        $('.btnjsonp').on('click',function(){
+            $.ajax({
+                type:'GET',
+                url: 'http://127.0.0.1/api/jsonp',
+                dataType: 'jsonp',
+                success: function(res){
+                    console.log(res);
+                }
+            })
+        })
+    </script>
+</body>
+</html>
